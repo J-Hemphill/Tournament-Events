@@ -1,4 +1,4 @@
-package org.liftoff.tournamentevents;
+package org.launchcode.tournamentevents;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
