@@ -130,3 +130,5 @@ public class EventDetails extends AbstractEntity {
         this.numberOfContestants = numberOfContestants;
     }
 }
+
+// Testing
