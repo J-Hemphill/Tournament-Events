@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" xmlns: th="http://www.thymeleaf.org/" xmlns:th="">
+<head th:replace="fragments :: head"></head>
+<body class="container" style="background-color: gray">
+
+<h1 th:replace="fragments :: title" class="text-warning">All Events</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${events} and ${events.size()}">No Events!</p>
+
+<table class="table table-striped" style="background-color: maroon">
+    <thead>
+    <tr style="tr:nth-child(even) {background-color: #f2f2f2;}">
+        <th class="text-white">ID</th>
+        <th class="text-white">Name</th>
+        <th class="text-white">Description</th>
+        <th class="text-white">Location</th>
+        <th class="text-white">Contact Email</th>
+        <th class="text-white">Date</th>
+        <th class="text-white">Entry Fee</th>
+        <th class="text-white">Type Of Tournament</th>
+        <th class="text-white">Age Requirement</th>
+        <th class="text-white">Number Of Contestants</th>
+    </tr>
+    </thead>
+    <tr th:each="event : ${events}">
+        <td th:text="${event.id}" class="text-white bg-dark"></td>
+        <td th:text="${event.name}" class="text-white bg-dark"></td>
+        <td th:text="${event.eventDetails.description}" class="text-white bg-dark"></td>
+        <td th:text="${event.eventDetails.location}" class="text-white bg-dark"></td>
+        <td th:text="${event.eventDetails.contactEmail}" class="text-white bg-dark"></td>
+        <td th:text="${event.eventDetails.date}" class="text-white bg-dark"></td>
+        <td th:text="${event.eventDetails.entryFee}" class="text-white bg-dark"></td>
+        <td th:text="${event.eventDetails.type.displayName}" class="text-white bg-dark"></td>
+        <td th:text="${event.eventDetails.ageRequirement}" class="text-white bg-dark"></td>
+        <td th:text="${event.eventDetails.numberOfContestants}" class="text-white bg-dark"></td>
+    </tr>
+</table>
 
 </body>
 </html>

@@ -1,10 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" xmlns: th="http://www.thymeleaf.org/" xmlns:th="">
+<head th:replace="fragments :: head"></head>
+<body class="container" style="background-color: gray">
+
+<h1 th:replace="fragments :: title" class="text-warning">Create Events</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" action="/events/create">
+    <div class="form-group">
+        <label>Name
+            <input type="text" th:field="${event.name}" class="form-control" />
+        </label>
+        <p class="error" th:errors="${event.name}"></p>
+    </div>
+    <div class="form-group">
+        <label>Description
+            <input type="text" th:field="${event.eventDetails.description}" class="form-control" />
+        </label>
+        <p class="error" th:errors="${event.eventDetails.description}"></p>
+    </div>
+    <div class="form-group">
+        <label>Location
+            <input type="text" th:field="${event.eventDetails.location}" class="form-control" />
+        </label>
+        <p class="error" th:errors="${event.eventDetails.location}"></p>
+    </div>
+    <div class="form-group">
+        <label>Contact Email
+            <input type="text" th:field="${event.eventDetails.contactEmail}" class="form-control" />
+        </label>
+        <p class="error" th:errors="${event.eventDetails.contactEmail}"></p>
+    </div>
+    <div class="form-group">
+        <label>Date
+            <input type="text" th:field="${event.eventDetails.date}" class="form-control" />
+        </label>
+        <p class="error" th:errors="${event.eventDetails.date}"></p>
+    </div>
+    <div class="form-group">
+        <label>Entry Fee
+            <input type="text" th:field="${event.eventDetails.entryFee}" class="form-control" />
+        </label>
+        <p class="error" th:errors="${event.eventDetails.entryFee}"></p>
+    </div>
+    <div class="form-group">
+        <label>Type Of Tournament<br>
+            <select th:field="${event.eventDetails.type}">
+                <option th:each="type : ${types}"
+                                th:value="${type}"
+                                th:text="${type.displayName}"></option>
+            </select>
+        </label>
+        <p class="error" th:errors="${event.eventDetails.type}"></p>
+    </div>
+    <div class="form-group">
+        <label>Age Requirement
+            <input type="text" th:field="${event.eventDetails.ageRequirement}" class="form-control" />
+        </label>
+        <p class="error" th:errors="${event.eventDetails.ageRequirement}"></p>
+    </div>
+    <div class="form-group">
+        <label>Number Of Contestants
+            <input type="text" th:field="${event.eventDetails.numberOfContestants}" class="form-control" />
+        </label>
+        <p class="error" th:errors="${event.eventDetails.numberOfContestants}"></p>
+    </div>
+
+
+    <div class="form-group"><br>
+        <input type="submit" value="Create" class="btn btn-success">
+    </div>
+</form>
 
 </body>
 </html>
