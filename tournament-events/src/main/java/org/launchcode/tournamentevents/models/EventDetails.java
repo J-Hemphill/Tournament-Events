@@ -7,8 +7,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 public class EventDetails extends AbstractEntity {
@@ -35,13 +33,12 @@ public class EventDetails extends AbstractEntity {
     @NotNull
     private String entryFee;
 
-    @NotNull
-    private TypeOfTournament typeOfTournament;
-
     @NotBlank(message = "Total audience capacity is required!")
     @NotNull
     private String totalAudienceCapacity;
 
+    @NotBlank(message = "Number of contestants required!")
+    @NotNull
     private String numberOfContestants;
 
     public EventDetails(
@@ -50,7 +47,6 @@ public class EventDetails extends AbstractEntity {
             String contactEmail,
             String date,
             String entryFee,
-            TypeOfTournament typeOfTournament,
             String totalAudienceCapacity,
             String numberOfContestants
     ) {
@@ -59,7 +55,6 @@ public class EventDetails extends AbstractEntity {
         this.contactEmail = contactEmail;
         this.date = date;
         this.entryFee = entryFee;
-        this.typeOfTournament = typeOfTournament;
         this.totalAudienceCapacity = totalAudienceCapacity;
         this.numberOfContestants = numberOfContestants;
     }
@@ -104,14 +99,6 @@ public class EventDetails extends AbstractEntity {
 
     public void setEntryFee(String entryFee) {
         this.entryFee = entryFee;
-    }
-
-    public TypeOfTournament getTypeOfTournament() {
-        return typeOfTournament;
-    }
-
-    public void setTypeOfTournament(TypeOfTournament typeOfTournament) {
-        this.typeOfTournament = typeOfTournament;
     }
 
     public String getTotalAudienceCapacity() {

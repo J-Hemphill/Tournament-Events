@@ -19,7 +19,6 @@
         <th class="text-white">Contact Email</th>
         <th class="text-white">Date</th>
         <th class="text-white">Entry Fee</th>
-        <th class="text-white">Type Of Tournament</th>
         <th class="text-white">Total Audience Capacity</th>
         <th class="text-white">Number Of Contestants</th>
 
@@ -34,10 +33,9 @@
         <td th:text="${event.eventDetails.contactEmail}" class="text-white bg-dark"></td>
         <td th:text="${event.eventDetails.date}" class="text-white bg-dark"></td>
         <td th:text="${event.eventDetails.entryFee}" class="text-white bg-dark"></td>
-        <td th:text="${event.eventDetails.typeOfTournament}" class="text-white bg-dark"></td>
         <td th:text="${event.eventDetails.totalAudienceCapacity}" class="text-white bg-dark"></td>
         <td th:text="${event.eventDetails.numberOfContestants}" class="text-white bg-dark"></td>
-
+        <td><a style="color: yellow" class="nav-link" th:href="@{/events/edit/{id}(id=${event.id})}">Edit</a></td>
     </tr>
 </table>
 

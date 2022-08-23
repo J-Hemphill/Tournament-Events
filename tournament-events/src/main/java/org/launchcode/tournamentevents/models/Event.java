@@ -1,7 +1,6 @@
 package org.launchcode.tournamentevents.models;
 
 import com.sun.istack.NotNull;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -13,6 +12,7 @@ import javax.validation.constraints.Size;
 public class Event extends AbstractEntity {
 
     @NotBlank(message = "Name is required!")
+    @NotNull
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters!")
     private String name;
 
@@ -23,10 +23,12 @@ public class Event extends AbstractEntity {
     private EventDetails eventDetails;
 
     public Event(
-            String name
+            String name,
+            EventDetails eventDetails
     ) {
 
         this.name = name;
+        this.eventDetails = eventDetails;
     }
 
     public Event() {
@@ -52,4 +54,5 @@ public class Event extends AbstractEntity {
     public String toString() {
         return name;
     }
+
 }
